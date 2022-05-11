@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <a href="https://www.aluracursos.com/" title="Pagina Oficial de Alura">
+                <img src="imagenes/Logo.png" alt="logo de alura">
+            </a>
+        </header>
+        <main>
+
+            <section class="main-section">
+                <textarea class="main-textarea" placeholder="Ingrese el texto aqui"></textarea>
+                <div class="rules-container">
+                    <img class="exclamation-logo" src="imagenes/bi_exclamation-circle-fill.png" alt="icono signo exclamacion">
+                    <p class="rules-text">Solo letras minusculas y sin acentos</p>
+                </div>
+                <div class="button-container">
+                    <input type="button" class="btn-encrypt" value="Encriptar">
+                    <input type="button" class="btn-decrypt" value="Desencriptar">
+                </div>
+            </section>
+
+            <section class="result-section">
+                <div class="no-text-message-container">
+                    <div class="munieco-container">
+                        <img src="imagenes/Muñeco.png" alt="muñeco de alura">
+                    </div>
+                    <div class="error-msg-container"  >
+                        <h3>Ningun mensaje fue encontrado</h3>
+                    </div>
+                    <div class="paragraph-container"  >
+                        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                    </div>
+                </div>
+                <div class="result-container">
+                    <p class="encrypted-text"></p>
+                    <div class="copy-btn-container">
+                        <input type="button" class="btn-copy" value="Copiar">
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+        <footer>
+
+        </footer>
+        <script type="text/javascript" src="encriptar.js"></script>
+    </body>
+</html>
