@@ -1,4 +1,4 @@
-
+var deviceWidth =document.documentElement.clientWidth;
 var btnEncrypt = document.querySelector(".btn-encrypt");
 var btnDecrypt = document.querySelector(".btn-decrypt");
 var btnCopy = document.querySelector(".btn-copy");
@@ -16,6 +16,8 @@ btnEncrypt.addEventListener("click", function(){
         alert("El texto no puede contener caracteres especiales o mayusculas");
         return;
     }*/
+
+
     
     toggleMensaje();
     result.textContent = "";
@@ -36,13 +38,28 @@ btnCopy.addEventListener("click", function(){
 
 //Muestro div con mensaje si el textarea esta poblado a la hora de hacer click
 function toggleMensaje(){
-    if(textArea.value.length == 0){
-        noTextMessage.classList.remove("hide");
-        resultContainer.classList.add("hide");
+    let desktopSize = 1440; 
+    let tabletSize = 768;
+    let phoneSize = 375;
+    if(deviceWidth >= tabletSize && deviceWidth < desktopSize){
+        if(textArea.value.length == 0){
+            noTextMessage.classList.remove("hide");
+            resultContainer.classList.add("hide");
+        }
+        else{
+            noTextMessage.classList.add("hide");
+            resultContainer.classList.remove("hide");
+        }
     }
-    else{
-        noTextMessage.classList.add("hide");
-        resultContainer.classList.remove("hide");
+    if(deviceWidth >= desktopSize){
+        if(textArea.value.length == 0){
+            noTextMessage.classList.remove("hide");
+            resultContainer.classList.add("hide");
+        }
+        else{
+            noTextMessage.classList.add("hide");
+            resultContainer.classList.remove("hide");
+        }
     }
 }
 

@@ -1,10 +1,11 @@
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
-            <a href="https://www.aluracursos.com/" title="Pagina Oficial de Alura">
+            <a href="https://www.aluracursos.com/" title="Pagina Oficial de Alura" class="logo-alura">
                 <img src="imagenes/Logo.png" alt="logo de alura">
             </a>
         </header>
@@ -23,24 +24,25 @@
             </section>
 
             <section class="result-section">
-                <div class="no-text-message-container">
-                    <div class="munieco-container">
-                        <img src="imagenes/Muñeco.png" alt="muñeco de alura">
+                <div class="result-interaction-container">
+                    <div class="no-text-message-container">
+                        <div class="munieco-container mobile-hide">
+                            <img class="munieco-image" src="imagenes/Muñeco.png" alt="muñeco de alura">
+                        </div>
+                        <div class="error-msg-container"  >
+                            <h3>Ningun mensaje fue encontrado</h3>
+                        </div>
+                        <div class="paragraph-container"  >
+                            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                        </div>
                     </div>
-                    <div class="error-msg-container"  >
-                        <h3>Ningun mensaje fue encontrado</h3>
-                    </div>
-                    <div class="paragraph-container"  >
-                        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+                    <div class="result-container hide">
+                        <p class="encrypted-text"></p>
+                        <div class="copy-btn-container">
+                            <input type="button" class="btn-copy" value="Copiar">
+                        </div>
                     </div>
                 </div>
-                <div class="result-container">
-                    <p class="encrypted-text"></p>
-                    <div class="copy-btn-container">
-                        <input type="button" class="btn-copy" value="Copiar">
-                    </div>
-                </div>
-
             </section>
 
         </main>
