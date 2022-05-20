@@ -1,31 +1,32 @@
-var deviceWidth =document.documentElement.clientWidth;
 var btnEncrypt = document.querySelector(".btn-encrypt");
 var btnDecrypt = document.querySelector(".btn-decrypt");
 var btnCopy = document.querySelector(".btn-copy");
-
 var textArea = document.querySelector(".main-textarea");
 var result = document.querySelector(".encrypted-text") 
-
 var noTextMessage = document.querySelector(".no-text-message-container");
 var resultContainer = document.querySelector(".result-container");
 
 
 btnEncrypt.addEventListener("click", function(){
-    /*if(validateText(textArea.value)) 
+    if(!validateText(textArea.value)) 
     {
         alert("El texto no puede contener caracteres especiales o mayusculas");
         return;
-    }*/
-
-
-    
+    }
     toggleMensaje();
+
     result.textContent = "";
+
     result.textContent = encryptText(textArea.value);
 });
 
 
 btnDecrypt.addEventListener("click", function(){
+    if(!validateText(textArea.value)) 
+    {
+        alert("El texto no puede contener caracteres especiales o mayusculas");
+        return;
+    }
     toggleMensaje();
     result.textContent = "";
     result.textContent = decryptText(textArea.value);
@@ -34,14 +35,11 @@ btnDecrypt.addEventListener("click", function(){
 //Esta funcion copia el texto del parametro ingresado en nuestro clipboard
 btnCopy.addEventListener("click", function(){
     navigator.clipboard.writeText(result.textContent);
+    alert("Mensaje copiado con exito");
 })
 
 //Muestro div con mensaje si el textarea esta poblado a la hora de hacer click
 function toggleMensaje(){
-    let desktopSize = 1440; 
-    let tabletSize = 768;
-    let phoneSize = 375;
-    if(deviceWidth >= tabletSize && deviceWidth < desktopSize){
         if(textArea.value.length == 0){
             noTextMessage.classList.remove("hide");
             resultContainer.classList.add("hide");
@@ -50,17 +48,6 @@ function toggleMensaje(){
             noTextMessage.classList.add("hide");
             resultContainer.classList.remove("hide");
         }
-    }
-    if(deviceWidth >= desktopSize){
-        if(textArea.value.length == 0){
-            noTextMessage.classList.remove("hide");
-            resultContainer.classList.add("hide");
-        }
-        else{
-            noTextMessage.classList.add("hide");
-            resultContainer.classList.remove("hide");
-        }
-    }
 }
 
 //Funcion para encriptar texto
@@ -133,5 +120,5 @@ function decryptText(message){
 }
 
 function validateText(string){
-    //TO DO: Crear funcion para validar texto
+    return((/^[a-z ]+$/.test(string)));
 }
